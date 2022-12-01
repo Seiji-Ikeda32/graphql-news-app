@@ -21,6 +21,10 @@
   "homepage": "https://github.com/Seiji-Ikeda32/graphql-news-app#readme",
   "dependencies": {
     "@apollo/server": "^4.2.2",
+    "@prisma/client": "^4.7.0",
     "graphql": "^16.6.0"
+  },
+  "devDependencies": {
+    "prisma": "^4.7.0"
   }
 }
