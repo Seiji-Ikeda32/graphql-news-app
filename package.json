@@ -1,0 +1,24 @@
+{
+  "name": "graphql-news-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seiji-Ikeda32/graphql-news-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Seiji-Ikeda32/graphql-news-app/issues"
+  },
+  "homepage": "https://github.com/Seiji-Ikeda32/graphql-news-app#readme",
+  "dependencies": {
+    "@apollo/server": "^4.2.2",
+    "graphql": "^16.6.0"
+  }
+}
