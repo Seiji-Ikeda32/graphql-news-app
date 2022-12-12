@@ -3,6 +3,14 @@ type Article {
     url: String
     title: String
     author: String
+    postedBy: User
+}
+
+type User {
+    id: ID
+    name: String!
+    email: String!
+    articles: [Article!]!
 }
 
 type Query {
@@ -11,4 +19,11 @@ type Query {
 
 type Mutation {
     post(url: String, title: String, author: String): Article
+    signup(email: String!, password: String!, name: String!): AuthPayload
+    login(email: String!, password: String!): AuthPayload
+}
+
+type AuthPayload {
+    token: String
+    user: User
 }
