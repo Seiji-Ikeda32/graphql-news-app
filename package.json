@@ -22,7 +22,9 @@
   "dependencies": {
     "@apollo/server": "^4.2.2",
     "@prisma/client": "^4.7.0",
-    "graphql": "^16.6.0"
+    "bcryptjs": "^2.4.3",
+    "graphql": "^16.6.0",
+    "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
     "prisma": "^4.7.0"

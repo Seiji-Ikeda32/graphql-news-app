@@ -4,28 +4,25 @@ import { PrismaClient } from '@prisma/client';
 
 import fs from 'fs';
 
+import Query from './resolvers/query';
+import Mutaition from './resolvers/mutaition'; 
+import Article from './resolvers/article';
+import User from './resolvers/user';
+
+// const Articles = require("./resolvers/articles");
+// const Mutaition = require("./resolvers/mutaition");
+// const Article = require("./resolvers/article");
+// const User = require("./resolvers/user");
+
 const GRAPHQL_FILE = "./src/schema.graphql";
+const { getUserId } = require("./utils")
 const prisma = new PrismaClient();
 
 const resolvers = {
-    Query: {
-        articles: async (parent, args, context) => {
-            return context.prisma.article.findMany();
-        },
-    },
-
-    Mutation: {
-        post: (parent, args, context) => {
-            const newArticle = context.prisma.article.create({
-                data: {
-                    url: args.url,
-                    title: args.title,
-                    author: args.author,
-                }
-            });
-            return newArticle
-        },
-    },
+    Query,
+    Mutaition,
+    Article,
+    User,
 };
 
 const server = new ApolloServer({
@@ -35,8 +32,10 @@ const server = new ApolloServer({
 
 const { url } = await startStandaloneServer(server, {
     listen: { port: 4000 },
-    context: async() => ({
+    context: async({req}) => ({
+        ...req,
         prisma,
+        userId: req && req.headers.authorization ? getUserId(req) : null,
     }),
 });
   
